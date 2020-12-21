@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_FFFFFF"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/layoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/color_CDCCCC"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:paddingEnd="@dimen/dimen_10dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/background_search_text_box"
+                android:drawableStart="@drawable/ic_search_gray"
+                android:drawablePadding="@dimen/dimen_6dp"
+                android:hint="@string/text_search"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:textSize="@dimen/font_14sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvRecentSearches"
+            style="@style/TextView"
+            android:layout_marginStart="@dimen/dimen_14dp"
+            android:layout_marginTop="@dimen/dimen_14dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/text_recent_searches"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/font_16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecentSearchList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_14dp"
+            android:background="@color/color_FFFFFF" />
+    </LinearLayout>
+</ScrollView>

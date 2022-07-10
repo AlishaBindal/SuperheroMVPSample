@@ -6,6 +6,7 @@ import android.content.Context;
 import java.lang.ref.WeakReference;
 
 import io.paperdb.Paper;
+import io.requestly.android.core.Requestly;
 
 /**
  * Base Application
@@ -28,5 +29,8 @@ public class BaseApplication extends Application {
         super.onCreate();
         mWeakReference = new WeakReference<Context>(this);
         Paper.init(this);
+        new Requestly.Builder(this, "VoQRErbaY8C4aTNBBIzz")
+                .build();
+
     }
 }

@@ -1,10 +1,13 @@
 package com.mvpSample.data.network;
 
 
+import com.mvpSample.BaseApplication;
 import com.mvpSample.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
+import io.requestly.android.okhttp.api.RQCollector;
+import io.requestly.android.okhttp.api.RQInterceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -74,10 +77,16 @@ public final class RestClient {
      * @return object of OkHttpClient.Builder
      */
     public static OkHttpClient.Builder httpClient() {
+        RQCollector collector = new RQCollector(BaseApplication.getAppContext());
+
+        RQInterceptor rqInterceptor = new RQInterceptor.Builder(BaseApplication.getAppContext())
+                .collector(collector)
+                .build();
+
         final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         // add your other interceptors …
         // add logging as last interceptor
-        httpClient.addInterceptor(getLoggingInterceptor());
+        httpClient.addInterceptor(rqInterceptor);
         return httpClient;
     }
 
